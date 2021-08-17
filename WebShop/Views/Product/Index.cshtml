@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Product>
+
+<div>
+    <h1>Products</h1>
+    <div>
+        <ul id="ProductList">
+            @foreach(Product product in Model)
+            {
+                <li>
+                    <h4>@product.Name</h4>
+                    <img src="~/@product.Image"/>
+                    <p>Price: $@product.Price.ToString("0.00")</p>
+                    @Html.ActionLink("Buy Now!", "Detail", "Product", new { id = product.ID }, new { @class = "btn btn-primary" })
+                </li>
+            }
+        </ul>
+    </div>
+</div> 
