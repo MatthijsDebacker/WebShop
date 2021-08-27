@@ -1,0 +1,39 @@
+﻿@model WebShop.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            $ @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            Amount:
+        </dt>
+        <dd class = "col-sm-10">
+            <input type="number" value="1" name="QuantitySelector"/>
+        </dd>
+        <dd>
+            <img src="~/@Model.Image"/>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="AddToCart" asp-controller="Products" asp-route-productID="@Model.ID" asp-route-quantity="QuantitySelector">Add To Cart</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
